@@ -1,3 +1,24 @@
+function assign() {
+
+    var destination = arguments[0];
+    var arrayOfProps = Array.prototype.splice.call(arguments,1);
+
+    for (var i = 0; i < arrayOfProps.length; i++) {
+        if(typeof arrayOfProps[i] === 'object' && typeof destination === 'object')
+            for(var prop in arrayOfProps[i]){
+                destination[prop] = arrayOfProps[i][prop];
+            }
+    }
+
+    return destination;
+};
+
+var defaults = { width: 100, height: 100 };
+var options = { width: 150 };
+var configs = assign({}, defaults, options);
+console.log(configs);
+
+
 function inherits(ctor, superCtor) {
     ctor.super_ = superCtor;
     ctor.prototype = Object.create(superCtor.prototype, {
