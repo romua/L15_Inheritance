@@ -163,3 +163,4 @@ console.log(boar.name);
 module.exports = Character;
 module.exports = Monster;
 module.exports = Champion;
+module.exports = assign;
